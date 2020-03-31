@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Index";
+    
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 bg-primary">
+            oi<br /><br /><br /><br /><br /><br />oi<br /><br /><br /><br />oi
+        </div>
+        <br />
+        <div class="col-md-10">
+            <div style="width:95%; margin: 0 auto 0 auto;">
+                <div class="row" ng-controller="boardCtrl">
+                    <div ng-include="'/AppScript/busyModal.html'" ng-show="isLoading"></div>
+                    <div class="col-lg-3 panel" id="{{col.Id}}" kanban-board-drop="over" ng-repeat="col in columns">
+                        <div class="panel-heading" style="margin-bottom: 1px; background-color:darkorange; color:white">
+                            <h3 class="panel-title">{{col.Name}}</h3>
+                        </div> 
+                        <div class="thumbnail" draggable="true" kanban-board-dragg="task"
+                             ng-repeat="task in col.Tasks" style="margin-bottom: 2px;">
+                            <div class="caption">
+                                <h5><strong>{{task.Name}}</strong></h5>
+                                <p>{{task.Description}}</p>
+                                <p><a href="#" class="btn btn-primary btn-sm" role="button">Edit</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    <button type="button" role="button" id="myBtn" class="btn btn-info btn-lg" data-target="#MyModal" data-toggle="modal">Modal Button</button>
+</p>
+<div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4>DemoModal Title</h4>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to modal</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button class="btn btn-success" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html ng-app="kanbanBoardApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <style>
+        .colStyle {
+            //margin-right: 1px;
+            width: 23%;
+            padding-top: 2px;
+            margin-top: 10px;
+            border: none;
+            min-height: 100px;
+            max-height: 500px;
+        }
+
+        .busyIndicator .alert {
+            left: 40%;
+            top: 5%;
+            position: fixed;
+            z-index: 1050;
+            width: 400px;
+            height: 40px;
+            padding-left: 10px;
+            padding-top: 10px;
+            background-color: lightgreen;
+            color: black;
+            border-color: transparent;
+        }
+
+        .busyIndicator .backgroundMask {
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: black;
+            z-index: 1049;
+        }
+
+        .over {
+            background-color: #fff;
+            border: 1px dashed red;
+        }
+
+        .navbar {
+            background-image:linear-gradient(-90deg, orange,darkorange);
+            color:white;
+        }
+        .navbar-inverse{
+            color:white;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Gestão de Projetos DACC", "Index", "Home", new { area = "" },
+new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" style="color:white;">Registro de Atividades</a></li>
+                    <li><a href="#" style="color:white;">Cadastro de Projetos</a></li>
+                    <li><a href="#" style="color:white;">Relatórios</a></li>
+                    <li><a href="#" style="color:white;">Gráficos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Sobre", "Sobre", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.1.1.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+
+    <script src="~/AppScript/main.js"></script>
+    <script src="~/AppScript/kanbanBoardDragDrop.js"></script>
+    <script src="~/AppScript/boardService.js"></script>
+    <script src="~/AppScript/boardCtrl.js"></script>
+
+</body>
+</html>
